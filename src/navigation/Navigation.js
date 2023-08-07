@@ -10,13 +10,14 @@ import styles from '../styles/stylesNavegacion';
 
 //import camicon
 import cam from '../assets/logEC.png'
+import Bienvenido from '../screens/Bienvenido';
 
 const Tab= createBottomTabNavigator();
 
-export default function Navigation() {
+export default function Navigation(props) {
  
   return (
-      <Tab.Navigator screenOptions={({ route }) => ({
+      <Tab.Navigator initialRouteName='Inicio' screenOptions={({ route }) => ({
       tabBarActiveTintColor: '#efb810',
       tabBarInactiveTintColor: 'black',
       tabBarStyle: [styles.tabnav],
@@ -24,8 +25,8 @@ export default function Navigation() {
       tabBarLabel: ({focused, color }) => {
         let labelicon = '';
         switch (route.name) {
-          case 'Perfil':
-            labelicon = focused ? 'Perfil' : '';
+          case 'Inicio':
+            labelicon = focused ? 'Inicio' : '';
             break;
           case 'Classification':
             labelicon = focused ? '' : '';
@@ -37,14 +38,25 @@ export default function Navigation() {
         return <Text style={{color:'purple'}}>{labelicon}</Text>
       }
     })}>
-      <Tab.Screen name='Perfil' component={HomeUser}
+      <Tab.Screen name='Inicio' component={Bienvenido}
         options={{
           tabBarIcon: ({ focused }) => (
             <View style={styles.tabvaricon}>
-              <FontAwesome5 name="user" size={20} color={focused ? 'purple' : 'gray'}>
+              <FontAwesome5 name="home" size={20} color={focused ? 'purple' : 'gray'}>
               </FontAwesome5>
             </View>),
             headerShown: false,
+        }}
+      ></Tab.Screen>
+      <Tab.Screen name='HomeUser' component={HomeUser}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <View style={styles.tabvaricon}>
+              <FontAwesome5 name="home" size={20} color={focused ? 'purple' : 'gray'}>
+              </FontAwesome5>
+            </View>),
+            headerShown: false,
+            tabBarButton: () => null
         }}
       ></Tab.Screen>
       <Tab.Screen name='Classification' component={Classification}
@@ -57,7 +69,8 @@ export default function Navigation() {
               </View>
             
           ) , 
-          headerShown: false
+          headerShown: false,
+          tabBarStyle: {display: "none"}
         }}
       ></Tab.Screen>
       <Tab.Screen name='Estadisticas' component={Statistics}

@@ -7,9 +7,9 @@ import Classification from '../screens/Classification';
 import { FontAwesome5 } from '@expo/vector-icons';
 import styles from '../styles/stylesNavegacion';
 
+
 //import camicon
 import cam from '../assets/logEC.png'
-import { Vibration } from 'react-native';
 
 const Tab= createBottomTabNavigator();
 

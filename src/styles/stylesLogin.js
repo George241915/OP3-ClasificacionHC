@@ -6,6 +6,7 @@ const styles=StyleSheet.create({
         justifyContent:'center',
         alignItems:'center',
         backgroundColor:'#ffff'
+
     },
 
     image:{
@@ -14,11 +15,19 @@ const styles=StyleSheet.create({
         resizeMode:'cover',
 
     },
+
+    image1:{
+            width: '100%',
+            height:'100%',
+            resizeMode:'contain',
+
+        },
+
     card:{
-        margin:20,
+        margin:'auto',
         backgroundColor:'#ffff',
         borderRadius:20,
-        width:'90%',
+        width:'50%',
         padding:20,
         shadowColor:'#000',
         shadowOffset:{
@@ -30,27 +39,36 @@ const styles=StyleSheet.create({
         elevation:5
     },
     profilePictures:{
-        width:100,
-        height:100,
-        borderRadius:50,
-        borderColor:'#ffff',
-        borderWidth:1,
-        marginVertical:30
+        width:200,
+        height:200,
+        marginVertical:110,
+        marginHorizontal:'auto',
+        resizeMode:'contain',
+
     },
+
+    input: {
+        fontSize: 20,
+        textAlign:'center',
+    },
+
     boxText:{
         paddingVertical:20,
         backgroundColor:'#cccccc40',
         borderRadius:30,
-        marginVertical:10
-        
+        marginVertical:10,
+        justifyContent: 'center',
+        alignItems: 'center',
+
+
     },
     button:{
         
         alignItems:'center',
-        
+
     },
     boxButton:{
-        backgroundColor:'#525fe1',
+        backgroundColor: '#6745A3',
         borderRadius:30,
         paddingVertical:20,
         width:150,
@@ -58,6 +76,8 @@ const styles=StyleSheet.create({
     },
     TextButton:{
         textAlign:'center',
+        fontSize: 20,
+
         color:'#ffff'
     }
 })

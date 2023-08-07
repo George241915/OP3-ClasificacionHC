@@ -7,6 +7,7 @@ import HomeUser from '../screens/HomeUser';
 import Statistics from '../screens/Statistics';
 import Classification from '../screens/Classification';
 import Icon  from "react-native-vector-icons/FontAwesome5";
+import Camera from '../screens/CameraClassification';
 
 
 const Tab= createBottomTabNavigator();

@@ -1,17 +1,11 @@
 import { View, Text,Image } from 'react-native'
 import React, { useState,useRef, useEffect } from 'react'
+import CameraClassification from './CameraClassification'
 
 
-export default function Classification() {
+export default function Classification({navigation}) {
    
   return (
-    <View>
-      <View>
-        <Image
-            source={require("../assets/logEC.png")}
-            style={{width:150,height:150,justifyContent:'center',top:150}}
-        ></Image>
-      </View>
-    </View>
+    <CameraClassification></CameraClassification>
   )
 }

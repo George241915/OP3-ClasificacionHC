@@ -1,7 +1,7 @@
 import { SafeAreaView,View, Text ,Image, Button, TouchableOpacity, ImageBackground, Alert} from 'react-native'
 import React from 'react'
 import stylesInicio from '../styles/styleInicio'
-import Navegacion from './Navegacion'
+
 
 
 

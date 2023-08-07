@@ -1,4 +1,4 @@
-import { View,SafeAreaView, Text,Image,ScrollView,TouchableOpacity,TextInput,Button, Alert } from 'react-native'
+import { View,SafeAreaView, Text,Image,ScrollView,TouchableOpacity,TextInput,Button, Alert, ImageBackground } from 'react-native'
 import React from 'react'
 import styles from '../styles/stylesLogin'
 import app from '../api/firebaseConfig'
@@ -29,8 +29,9 @@ export default function Login(props) {
 
   return (
     <SafeAreaView style={styles.container}>
+        <ImageBackground source={require('../assets/fondologin.png')} resizeMode={'cover'} style={styles.image1}>
         <View>
-            <Image source={require('../assets/perfil.jpg')} style={styles.profilePictures}></Image>
+            <Image source={require('../assets/logEC.png')} style={styles.profilePictures}></Image>
         </View>
         <View style={styles.card} >
             <View style={styles.boxText}>
@@ -47,6 +48,7 @@ export default function Login(props) {
             </View>
            
         </View>
+        </ImageBackground>
     </SafeAreaView>
   )
 }

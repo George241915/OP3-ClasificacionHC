@@ -11,6 +11,7 @@ import styles from '../styles/stylesNavegacion';
 //import camicon
 import cam from '../assets/logEC.png'
 import Bienvenido from '../screens/Bienvenido';
+import Recomendaciones from '../screens/Recomendaciones';
 
 const Tab= createBottomTabNavigator();
 
@@ -81,6 +82,17 @@ export default function Navigation(props) {
               </FontAwesome5>
             </View>),
           headerShown: false
+        }}
+      ></Tab.Screen>
+      <Tab.Screen name='Recomendaciones' component={Recomendaciones}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <View style={styles.tabvaricon}>
+              <FontAwesome5 name="home" size={20} color={focused ? 'purple' : 'gray'}>
+              </FontAwesome5>
+            </View>),
+            headerShown: false,
+            tabBarButton: () => null
         }}
       ></Tab.Screen>
     </Tab.Navigator>

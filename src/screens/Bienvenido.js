@@ -1,9 +1,11 @@
 import React from 'react';
-import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 
 //import camicon
 import cam from '../assets/logEC.png'
+import styles from '../styles/stylePrincipal';
+
 
 export default function Bienvenido({navigation}) {
 
@@ -25,33 +27,3 @@ export default function Bienvenido({navigation}) {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      alignItems: 'center',
-    },
-    welcomeText: {
-        fontSize: 24,
-        fontWeight: 'bold',
-        marginBottom: 20,
-        textAlign: 'center',
-      },
-    logo: {
-      width: 150,
-      height: 150,
-      marginBottom: 20,
-    },
-    button: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      backgroundColor: 'blue',
-      padding: 10,
-      borderRadius: 5,
-    },
-    buttonText: {
-      color: 'white',
-      marginLeft: 10,
-      fontSize: 18,
-    },
-  });

@@ -1,27 +1,44 @@
 import { StyleSheet } from "react-native";
 
-const stylesCamera=StyleSheet.create({
-    container:{
-        flex:1,
-        justifyContent:'center',
-        paddingBottom:20
+const styles = StyleSheet.create({
+    container: {
+      flex: 1,
     },
-    camera:{
-        flex:1,
-        borderRadius:20,
+    camera: {
+      flex: 1,
+      justifyContent: 'space-between',
     },
-    button:{
-        height:40,
-        flexDirection:'row',
-        alignItems:'center',
-        justifyContent:'center'
+    header: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      paddingHorizontal: 20,
+      paddingTop: 20,
     },
-    text:{
-        fontWeight:'bold',
-        fontSize:16,
-        marginLeft:10,
-        color:'#f1f1f1'
-    }
-})
+    iconContainer: {
+      backgroundColor: 'rgba(0, 0, 0, 0.5)',
+      borderRadius: 24,
+      padding: 10,
+    },
+    previewImage: {
+      flex: 1,
+    },
+    captureButton: {
+      alignSelf: 'center',
+      marginVertical: 20,
+    },
+    bottomButtons: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      paddingHorizontal: 40,
+      paddingBottom: 20,
+    },
+    actionButton: {
+      alignItems: 'center',
+    },
+    buttonText: {
+      color: 'white',
+      marginTop: 5,
+    },
+  });
 
-export default stylesCamera
+  export default styles;

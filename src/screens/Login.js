@@ -28,27 +28,30 @@ export default function Login(props) {
 
 
   return (
-    <SafeAreaView style={styles.container}>
-        <ImageBackground source={require('../assets/fondologin.png')} resizeMode={'cover'} style={styles.image1}>
-        <View>
-            <Image source={require('../assets/logEC.png')} style={styles.profilePictures}></Image>
-        </View>
-        <View style={styles.card} >
-            <View style={styles.boxText}>
-                <TextInput onChangeText={(text)=>setEmail(text)} placeholder='correo@gmail.com' style={styles.input}></TextInput>
+    
+        <View style={styles.container}>
+            <ImageBackground source={require('../assets/alimentoC.jpg')} resizeMode={'cover'} style={styles.image1}>
+            <View style={{justifyContent:'center',alignItems:'center',}}>
+                <Image source={require('../assets/logEC.png')} style={styles.profilePictures}></Image>
             </View>
-            <View style={styles.boxText}>
-                <TextInput onChangeText={(text)=>setPassword(text)} placeholder='password' style={styles.input} secureTextEntry={true} ></TextInput>
-            </View>
+            <View style={styles.card} >
+                <View style={styles.boxText}>
+                    <TextInput onChangeText={(text)=>setEmail(text)} placeholder='correo@gmail.com' style={styles.input}></TextInput>
+                </View>
+                <View style={styles.boxText}>
+                    <TextInput onChangeText={(text)=>setPassword(text)} placeholder='password' style={styles.input} secureTextEntry={true} ></TextInput>
+                </View>
 
-            <View style={styles.button}>
-                <TouchableOpacity style={styles.boxButton} onPress={logueo}>
-                    <Text style={styles.TextButton}>Sign In</Text>
-                </TouchableOpacity>
+                <View style={styles.button}>
+                    <TouchableOpacity style={styles.boxButton} onPress={logueo}>
+                        <Text style={styles.TextButton}>Sign In</Text>
+                    </TouchableOpacity>
+                </View>
+            
             </View>
-           
+            </ImageBackground>
         </View>
-        </ImageBackground>
-    </SafeAreaView>
+        
+    
   )
 }

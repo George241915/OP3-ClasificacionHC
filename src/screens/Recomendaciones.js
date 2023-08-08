@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, TextInput, Button, Text } from 'react-native';
+import { View, TextInput, Button, Text,TouchableOpacity  } from 'react-native';
 import fetchChatGPTResponse from '../components/apiGPT';
 import styles from '../styles/styleChat';
 
@@ -23,13 +23,22 @@ const ChatScreen = ({navigation}) => {
 
   return (
     <View style={styles.container}> 
-      <TextInput
-        value={message}
-        onChangeText={setInputMessage} 
-        placeholder="Escribe tu mensaje"
-      />
-      <Button title="Enviar" onPress={handleSendMessage} />
-      <Text>{outputMessage}</Text>
+      <View >
+        <TextInput
+        style={styles.input}
+          value={message}
+          onChangeText={setInputMessage} 
+          placeholder="Escribe tu mensaje"
+        />
+      </View>
+      <View style={{alignContent:'center', alignItems: 'center',}}>
+        <TouchableOpacity style={styles.button} onPress={handleSendMessage}>
+              <Text style={styles.buttonText}>
+              {outputMessage}Enviar
+              </Text>
+          </TouchableOpacity>
+      </View>
+      
     </View>
   );
 };

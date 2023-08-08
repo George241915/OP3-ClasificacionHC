@@ -19,7 +19,7 @@ const stylesInicio=StyleSheet.create({
         
     },
     boxButton:{
-        backgroundColor:'#644797',
+        backgroundColor:'purple',
         borderRadius:30,
         paddingVertical:15,
         width:200,

@@ -5,7 +5,7 @@ const styles=StyleSheet.create({
         flex:1,
         justifyContent:'center',
         alignItems:'center',
-        backgroundColor:'#ffff'
+        paddingTop:30,
 
     },
 
@@ -22,64 +22,60 @@ const styles=StyleSheet.create({
             resizeMode:'contain',
 
         },
-
-    card:{
-        margin:'auto',
-        backgroundColor:'#ffff',
-        borderRadius:20,
-        width:'50%',
-        padding:20,
-        shadowColor:'#000',
-        shadowOffset:{
-            width:0,
-            height:2
+        card:{
+            margin:20,
+            backgroundColor:'#ffff',
+            borderRadius:20,
+            width:'90%',
+            padding:20,
+            shadowColor:'#000',
+            shadowOffset:{
+                width:0,
+                height:2
+            },
+            shadowOpacity:0.25,
+            shadowRadius:4,
+            elevation:5
         },
-        shadowOpacity:0.25,
-        shadowRadius:4,
-        elevation:5
-    },
-    profilePictures:{
-        width:200,
-        height:200,
-        marginVertical:110,
-        marginHorizontal:'auto',
-        resizeMode:'contain',
+        profilePictures:{
+            width:200,
+            height:200,
+            borderRadius:50,
+            borderColor:'#ffff',
+            tintColor: 'purple',
+            marginVertical:30,
+            
 
-    },
-
-    input: {
-        fontSize: 20,
-        textAlign:'center',
-    },
-
-    boxText:{
-        paddingVertical:20,
-        backgroundColor:'#cccccc40',
-        borderRadius:30,
-        marginVertical:10,
-        justifyContent: 'center',
-        alignItems: 'center',
-
-
-    },
-    button:{
-        
-        alignItems:'center',
-
-    },
-    boxButton:{
-        backgroundColor: '#6745A3',
-        borderRadius:30,
-        paddingVertical:20,
-        width:150,
-        marginTop:20
-    },
-    TextButton:{
-        textAlign:'center',
-        fontSize: 20,
-
-        color:'#ffff'
-    }
+        },
+        boxText:{
+            paddingVertical:20,
+            backgroundColor:'#cccccc40',
+            borderRadius:30,
+            marginVertical:10
+            
+        },
+        button:{
+            
+            alignItems:'center',
+            
+            
+            
+        },
+        boxButton:{
+            backgroundColor:'purple',
+            borderRadius:30,
+            paddingVertical:20,
+            width:150,
+            marginTop:20,
+            
+            
+        },
+        TextButton:{
+            textAlign:'center',
+            color:'#ffff',
+           
+        }
+    
 })
 
 export default styles

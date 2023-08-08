@@ -19,8 +19,9 @@ export default function Bienvenido({navigation}) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.welcomeText}>Bienvenido a EggScan</Text>
+      <Text style={styles.welcomeText}></Text>
       <TouchableOpacity  onPress={handleCameraPress}>
+      <View style={{paddingTop: 150}}>
       <Animatable.Image
           animation="pulse" // Usamos la animación "pulse" para el brillo llamativo
           easing="ease-out"
@@ -29,8 +30,10 @@ export default function Bienvenido({navigation}) {
           duration={2000}
           style={styles.logo}
         />
+      </View>
+      
       </TouchableOpacity>
-      <Text style={{fontSize: 20}}>
+      <Text style={{fontSize: 20,textAlign:'center',paddingTop: 20}}>
         ¿Quieres aprender más sobre codornices?
       </Text>
       <TouchableOpacity  onPress={handleCameraPress}>

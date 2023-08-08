@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
       width: 150,
       height: 150,
       marginBottom: 20,
+      tintColor: 'purple'
     },
     button: {
       flexDirection: 'row',

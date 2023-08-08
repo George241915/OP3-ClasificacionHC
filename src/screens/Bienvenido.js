@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
-import { FontAwesome5 } from '@expo/vector-icons';
+import * as Animatable from 'react-native-animatable';
 
 //import camicon
 import cam from '../assets/logEC.png'
@@ -21,10 +21,14 @@ export default function Bienvenido({navigation}) {
     <View style={styles.container}>
       <Text style={styles.welcomeText}>Bienvenido a EggScan</Text>
       <TouchableOpacity  onPress={handleCameraPress}>
-      <Image
-        source={cam} // Ruta de tu imagen de logo
-        style={styles.logo}
-      />
+      <Animatable.Image
+          animation="pulse" // Usamos la animación "pulse" para el brillo llamativo
+          easing="ease-out"
+          iterationCount="infinite" // Repite la animación infinitamente
+          source={cam}
+          duration={2000}
+          style={styles.logo}
+        />
       </TouchableOpacity>
       <Text style={{fontSize: 20}}>
         ¿Quieres aprender más sobre codornices?

@@ -12,7 +12,7 @@ const fetchChatGPTResponse = async (message) => {
     }, {
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ',
+        'Authorization': 'Bearer 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',
       },
     });
     const tokensConsumidos = response.data.usage.total_tokens;

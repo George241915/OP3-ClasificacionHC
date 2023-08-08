@@ -12,13 +12,12 @@ const styles = StyleSheet.create({
       paddingHorizontal:100,
       backgroundColor:'#cccccc40',
       borderRadius:30,
-      marginVertical:10
+      marginVertical:10,
     },
     input: {
       borderWidth: 1,
       borderColor: 'purple',
       alignContent:'center',
-      position:'absolute',
       padding: 10,
       borderRadius: 10,
       margin: 20,
@@ -30,7 +29,6 @@ const styles = StyleSheet.create({
     padding: 15,
     borderRadius: 15,
     width:'50%',
-    margin:120,
     alignItems: 'center',
     justifyContent: 'center',
     alignContent:'center',
@@ -39,6 +37,7 @@ const styles = StyleSheet.create({
     color: '#ffffff',
     fontSize: 16,
     fontWeight: 'bold',
+    display: "flex"
   },
     });
 

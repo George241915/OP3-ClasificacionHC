@@ -34,9 +34,14 @@ const ChatScreen = ({navigation}) => {
       <View style={{alignContent:'center', alignItems: 'center',}}>
         <TouchableOpacity style={styles.button} onPress={handleSendMessage}>
               <Text style={styles.buttonText}>
-              {outputMessage}Enviar
+                Enviar
               </Text>
           </TouchableOpacity>
+      </View>
+      <View style={{alignContent:'center', alignItems: 'center',}}>
+        <Text >
+         {outputMessage}
+        </Text>
       </View>
       
     </View>

@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+console.log(process.env.REACT_APP_API_KEY)
 const apiUrl = 'https://api.openai.com/v1/completions';
 
 const fetchChatGPTResponse = async (message) => {
@@ -12,7 +13,7 @@ const fetchChatGPTResponse = async (message) => {
     }, {
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ',
+        'Authorization': process.env.REACT_APP_API_KEY,
       },
     });
     const tokensConsumidos = response.data.usage.total_tokens;

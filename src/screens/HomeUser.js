@@ -23,19 +23,31 @@ export default function HomeUser() {
     <View style={styles.container}>
       <Image source={{uri: user.coverPhoto}} style={styles.coverPhoto}/>
       <View style ={styles.avatarContainer}>
-        <Image source={require('../assets/perfil.jpg')} style={styles.avatar}/>
-        <Text style={styles.name}>
-          {user.name}
-          </Text>
-          <Text style={styles.name}>
-            {user.correo}
-          </Text>
-          <Text style={styles.name}>
-            {user.phone}
-          </Text>
-          <Text style={styles.name}>
-            {user.Dirección}
-          </Text>
+        
+        <View style={styles.card}>
+          <View style ={styles.avatarContainer}>
+            <Image source={require('../assets/perfil.jpg')} style={styles.avatar}/>
+            <Text style={styles.namePrincipal}>
+              {user.name}
+            </Text>
+            <Text style={styles.emailSecond}>
+              {user.correo}
+            </Text>
+            <View>
+              
+            </View>
+          </View>
+          
+            
+        
+            <Text style={styles.name}>
+              {user.phone}
+            </Text>
+            <Text style={styles.name}>
+              {user.Dirección}
+            </Text>
+        </View>
+        
       </View>
     </View>
   )

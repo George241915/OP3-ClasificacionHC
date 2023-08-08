@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     },avatarContainer: {
         
         alignItems: "center",
-        marginTop: -75,
+        marginTop: -95,
     },avatar: {
         width: 150,
         height: 150,
@@ -22,15 +22,54 @@ const styles = StyleSheet.create({
         borderColor: "white", 
     }, name: {
         marginTop: 15,
-        fontSize: 20,
+        fontSize: 25,
         fontWeight: "bold",
-        color: 'purple'
+        color: 'purple',
+        width:250,
+        textAlign:'center'
     },buttonContainer: {
         flexDirection: "row",
         marginTop: 20,
-        width: "60%",
+        width: "80%",
         justifyContent: "space-between"
+    },
+    card:{
+        margin:95,
+        backgroundColor:'#ffff',
+        borderRadius:20,
+        width:'90%',
+        padding:20,
+        shadowColor:'#000',
+        shadowOffset:{
+            width:0,
+            height:2
+        },
+        shadowOpacity:0.25,
+        shadowRadius:4,
+        elevation:5
+    },
+    boxText:{
+        paddingVertical:5,
+        backgroundColor:'#cccccc40',
+        borderRadius:20,
+        marginVertical:5
+        
+    },
+    namePrincipal:{
+        marginTop: 5,
+        fontSize: 25,
+        fontWeight: "bold",
+        color: 'purple',
+        width:250,
+        textAlign:'center'
+    },
+    emailSecond:{
+        color:'#c0c0c0',
+        marginTop: 5,
+        fontSize: 15,
+        textAlign:'center'
     }
+
   });
 
   export default styles;

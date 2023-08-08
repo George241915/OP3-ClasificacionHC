@@ -45,7 +45,6 @@ const styles=StyleSheet.create({
             tintColor: 'purple',
             marginVertical:30,
             
-
         },
         boxText:{
             paddingVertical:20,

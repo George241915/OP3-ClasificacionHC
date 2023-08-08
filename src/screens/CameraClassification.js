@@ -1,94 +1,107 @@
-import { View, Text ,Image} from 'react-native'
-import React ,{useState,useRef,useEffect}from 'react'
-import * as MediaLibrary from 'expo-media-library';
-import { Camera, CameraType } from 'expo-camera';
-import stylesCamera from '../styles/styleCamera';
-import Button from '../components/Button';
+import React, { useState, useEffect, useRef } from 'react';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
+import { Camera } from 'expo-camera';
+import { Ionicons } from '@expo/vector-icons';
+import { useIsFocused, useFocusEffect } from '@react-navigation/native';
 
+import styles from '../styles/styleCamera';
 
-export default function CameraClassification(){
-    const [hasCameraPermission,setHasCameraPermission]=useState()
-    const [image,setImage]=useState(null)
-    const [type,setType]=useState(Camera.Constants.Type.back)
-    const [flash,setFlash]=useState(Camera.Constants.FlashMode.off)
+const CameraClassification = () => {
+  const [hasCameraPermission, setHasCameraPermission] = useState(null);
+  const [image, setImage] = useState(null);
+  const [type, setType] = useState(Camera.Constants.Type.back);
+  const [flash, setFlash] = useState(Camera.Constants.FlashMode.off);
 
-    const cameraRef=useRef(null)
+  const cameraRef = useRef(null);
 
-    useEffect(()=>{
-        (async()=>{
-            MediaLibrary.requestPermissionsAsync()
-            const cameraStatus=await Camera.requestCameraPermissionsAsync()
-            setHasCameraPermission(cameraStatus.status==='granted')
-        })()
-    },[])
+  useEffect(() => {
+    const getCameraPermission = async () => {
+      const cameraStatus = await Camera.requestCameraPermissionsAsync();
+      setHasCameraPermission(cameraStatus.status === 'granted');
+    };
+    getCameraPermission();
+  }, []);
 
-    const saveImage=async()=>{
-        if(image){
-            try {
-                await MediaLibrary.createAssetAsync(image)
-                alert('Picture save')
-                setImage(null)
-            } catch (error) {
-                console.log(error)
-            }
-        }
+  
+  useFocusEffect(
+    React.useCallback(() => {
+      if (cameraRef.current) {
+        (async () => {
+          await cameraRef.current.resumePreview();
+        })();
+      }
+      return () => {
+        // Puedes detener la cámara aquí si es necesario al perder el enfoque
+      };
+    }, []) );
+
+  const saveImage = async () => {
+    if (image) {
+      try {
+        // Guardar la imagen en tu librería u otro lugar
+        alert('Picture saved');
+        setImage(null);
+      } catch (error) {
+        console.log(error);
+      }
     }
+  };
 
-    const takePicture=async()=>{
-        if (cameraRef) {
-            try {
-                const data=await cameraRef.current.takePictureAsync()
-                console.log(data)
-                setImage(data.uri)
-            } catch (error) {
-                console.log(error)
-            }
-        }
+  const takePicture = async () => {
+    if (cameraRef.current) {
+      try {
+        const data = await cameraRef.current.takePictureAsync();
+        setImage(data.uri);
+      } catch (error) {
+        console.log(error);
+      }
     }
+  };
 
-    if(hasCameraPermission==false){
-        return <Text>No access to camera</Text>
-    }
   return (
-    <View style={stylesCamera.container}>
-        {!image ?
-      <Camera
-        style={stylesCamera.camera}
-        type={type}
-        flashMode={flash}
-        ref={cameraRef}
-      >
-        <View style={{
-            flexDirection:'row',
-            justifyContent:'space-between',
-            paddingHorizontal:30
-        }}>
-            <Button icon={'retweet'} onPress={()=>{setType(type===CameraType.back ? CameraType.front :CameraType.back)}}></Button>
-            <Button icon={'bolt'} 
-                color={flash === Camera.Constants.FlashMode.off ? 'gray': '#f1f1f1'}
-                onPress={()=>{setFlash(flash===Camera.Constants.FlashMode.off
-                ? Camera.Constants.FlashMode.on
-                : Camera.Constants.FlashMode.off
-            )}}></Button>
+    <View style={styles.container}>
+    {hasCameraPermission === false ? (
+      <Text>No access to camera</Text>
+    ) : (
+      <Camera style={styles.camera} type={type} flashMode={flash} ref={cameraRef}>
+        <View style={styles.header}>
+          <TouchableOpacity
+            style={styles.iconContainer}
+            onPress={() => setType(type === Camera.Constants.Type.back ? Camera.Constants.Type.front : Camera.Constants.Type.back)}
+          >
+            <Ionicons name="camera-reverse-outline" size={24} color="white" />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.iconContainer}
+            onPress={() => setFlash(flash === Camera.Constants.FlashMode.off ? Camera.Constants.FlashMode.on : Camera.Constants.FlashMode.off)}
+          >
+            <Ionicons name={flash === Camera.Constants.FlashMode.off ? 'flash-off-outline' : 'flash-outline'} size={24} color="white" />
+          </TouchableOpacity>
         </View>
+        {image ? (
+          <Image source={{ uri: image }} style={styles.previewImage} />
+        ) : (
+          <TouchableOpacity style={styles.captureButton} onPress={takePicture}>
+            <Ionicons name="camera-outline" size={48} color="white" />
+          </TouchableOpacity>
+        )}
+        {image && (
+          <View style={styles.bottomButtons}>
+            <TouchableOpacity style={styles.actionButton} onPress={() => setImage(null)}>
+              <Ionicons name="refresh-outline" size={24} color="white" />
+              <Text style={styles.buttonText}>Re-take</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.actionButton} onPress={saveImage}>
+              <Ionicons name="checkmark-circle-outline" size={24} color="white" />
+              <Text style={styles.buttonText}>Save</Text>
+            </TouchableOpacity>
+          </View>
+        )}
       </Camera>
-      :
-      <Image source={{uri: image}} style={stylesCamera.camera}></Image>
-        }
-      <View>
-        {image ?
-        <View style={{
-            flexDirection:'row',
-            justifyContent:'space-between',
-            paddingHorizontal:60
-        }}>
-            <Button title={"Re-take"} icon="undo" onPress={()=>setImage(null)}></Button>
-            <Button title={"Save"} icon="check-circle" onPress={saveImage}></Button>
-        </View>
-        :
-        <Button title={'Toma una fotografia'} icon="camera" onPress={takePicture}></Button>
-        }
-        </View>
-    </View>
-  )
-}
+    )}
+  </View>
+);
+};
+
+
+export default CameraClassification;

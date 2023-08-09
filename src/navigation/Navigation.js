@@ -13,6 +13,7 @@ import Bienvenido from '../screens/Bienvenido';
 import Recomendaciones from '../screens/Recomendaciones';
 import Model from '../screens/Model';
 
+
 const Tab= createBottomTabNavigator();
 
 export default function Navigation(props) {

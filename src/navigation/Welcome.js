@@ -8,7 +8,7 @@ import { Alert, Image, Text, TouchableOpacity, View } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 
 import cam from '../assets/logEC.png'
-import styles from '../styles/stylesNavegacion'
+
 
 const Stack=createNativeStackNavigator()
 

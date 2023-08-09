@@ -48,7 +48,8 @@ async function detect(imageFile, url=URL, confThres=0.25, iouThres=0.45, retries
   }
 }
 
-export default function model() {
+
+export default function Model({navigation}) {
   const [hasCameraPermission, setHasCameraPermission] = useState(null);
   const [image, setImage] = useState(null);
   const [imageWidth, setImageWidth] = useState(null);
@@ -68,6 +69,23 @@ export default function model() {
       setHasCameraPermission(cameraStatus.status === 'granted');
     })();
   }, []);
+
+    useEffect(() => {
+    if (navigation.isFocused()) {
+      if (cameraRef.current) {
+        (async () => {
+          await cameraRef.current.resumePreview();
+        })();
+      }
+    } else {
+      if (cameraRef.current) {
+        (async () => {
+          await cameraRef.current.pausePreview();
+        })();
+      }
+    }
+  }, [navigation]);
+ 
 
   useEffect(() => {
     if (image) {
@@ -310,6 +328,6 @@ const styles = StyleSheet.create({
     marginTop: 75
   },
   topControls: {
-    flex: 1,
-  },
+    flex: 1,
+  },
 });

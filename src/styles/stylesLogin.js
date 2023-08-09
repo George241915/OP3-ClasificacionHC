@@ -18,9 +18,8 @@ const styles=StyleSheet.create({
 
     image1:{
             width: '100%',
-            height:'100%',
+            height:'108%',
             resizeMode:'contain',
-
         },
         card:{
             margin:20,

@@ -4,7 +4,9 @@ import styles from '../styles/stylesLogin'
 import app from '../api/firebaseConfig'
 import {getAuth,signInWithEmailAndPassword, createUserWithEmailAndPassword} from 'firebase/auth'
 import { useState } from 'react'
+import CustomAlert from './CustomAlert';
 
+import cam from '../assets/logEC.png'
 
 const auth=getAuth(app)
 
@@ -14,16 +16,20 @@ export default function Login(props) {
 
     const [email,setEmail]= useState()
     const [password,setPassword]= useState()
+    const [showWelcomeAlert, setShowWelcomeAlert] = useState(false);
 
-    const logueo =async()=>{
+    const logueo = async () => {
         try {
-            await signInWithEmailAndPassword(auth,email,password)
-            Alert.alert('Iniciando sesion', 'Accediendo..')
-            props.navigation.navigate('Home')
+          await signInWithEmailAndPassword(auth, email, password);
+          setShowWelcomeAlert(true); // Mostrar la alerta de bienvenida
+          setTimeout(() => {
+            setShowWelcomeAlert(false); // Ocultar la alerta después de unos segundos
+            props.navigation.navigate('Home'); // Navegar a la pantalla principal
+          }, 1000); // 3000 ms = 3 segundos
         } catch (error) {
-            Alert.alert('Error', 'El usuario o la contraseña son incorrectos')
+          Alert.alert('Error', 'El usuario o la contraseña son incorrectos');
         }
-    }
+      };
 
 
 
@@ -50,6 +56,14 @@ export default function Login(props) {
             
             </View>
             </ImageBackground>
+            {showWelcomeAlert && ( // Mostrar la alerta si showWelcomeAlert es true
+        <CustomAlert
+        title="¡Bienvenido a EggScan!"
+        message="Iniciando sesión..."
+        onClose={() => setShowWelcomeAlert(false)}
+        logo={cam}
+      />
+      )}
         </View>
         
     

@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-console.log(process.env.REACT_APP_API_KEY)
 const apiUrl = 'https://api.openai.com/v1/completions';
 
 const fetchChatGPTResponse = async (message) => {

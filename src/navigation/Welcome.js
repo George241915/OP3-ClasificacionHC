@@ -38,12 +38,12 @@ export default function Welcome(props) {
   };
 
   const HeaderTitle = () => (
-    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+    <View style={{ flexDirection: 'row', alignItems: 'center' }} >
       <Image
         source={cam} // Ruta de tu imagen de logo
         style={{ width: 30, height: 30, marginRight: 10 , tintColor:'purple'}}
       />
-      <Text style={{ fontSize: 18, fontWeight: 'bold', color: 'purple'}}>EggScan</Text>
+      <Text style={{ fontSize: 18, fontWeight: 'bold', color: 'purple'}}  onPress={()=>navigation.navigate('Inicio')}>EggScan</Text>
     </View>
   );
 

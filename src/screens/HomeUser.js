@@ -1,13 +1,13 @@
-import { View, Text, SafeAreaView,Image, TouchableOpacity } from 'react-native'
+import { View, Text, SafeAreaView,Image, TouchableOpacity, Linking } from 'react-native'
 import React from 'react'
 import styles from '../styles/styleProfile'
 import Icon from "react-native-vector-icons/FontAwesome5"
 
-const twitter = <Icon name="twitter" size={50} color={"black"}></Icon>
-const facebook = <Icon name="facebook" size={50} color={"black"}></Icon>
-const instagram = <Icon name="instagram" size={50} color={"black"}></Icon>
-const linkedin = <Icon name="linkedin" size={50} color={"black"}></Icon>
-const tiktok = <Icon name="tiktok" size={50} color={"black"}></Icon>
+
+const facebook = <Icon name="facebook" size={50} ></Icon>
+const instagram = <Icon name="instagram" size={50} ></Icon>
+const linkedin = <Icon name="linkedin" size={50} ></Icon>
+
 
 export default function HomeUser() {
   const user = {
@@ -16,12 +16,13 @@ export default function HomeUser() {
     name: "Avicola Estefania",
     correo: "avicola@gmail.com",
     phone: "0987652419",
-    Dirección: "Mulalo"
+    Dirección: "Mulalo",
+    Ciudad: "Latacunga"
 }
 
   return (
     <View style={styles.container}>
-      <Image source={{uri: user.coverPhoto}} style={styles.coverPhoto}/>
+      
       <View style ={styles.avatarContainer}>
         
         <View style={styles.card}>
@@ -33,20 +34,32 @@ export default function HomeUser() {
             <Text style={styles.emailSecond}>
               {user.correo}
             </Text>
-            <View>
-              
+            <View style={styles.buttonContainer}>
+              <Text style={{color:'#F19A34'}} onPress={()=>Linking.openURL("https:www.facebook.com")}
+              >{facebook}</Text>
+              <Text style={{color:'#F19A34'}} onPress={()=>Linking.openURL("https:www.instagram.com")}
+              >{instagram}</Text>
+              <Text style={{color:'#F19A34'}} onPress={()=>Linking.openURL("https:www.linkedin.com")}
+              >{linkedin}</Text>
             </View>
-          </View>
-          
-            
-        
-            <Text style={styles.name}>
-              {user.phone}
-            </Text>
-            <Text style={styles.name}>
-              {user.Dirección}
-            </Text>
+          </View> 
         </View>
+
+        <View style={styles.cardD}>
+          <Text style={{paddingTop:5}}>Telefono</Text>
+          <Text style={styles.name}>
+                {user.phone}
+          </Text>
+          <Text style={{paddingTop:5}}>Dirección</Text>
+          <Text style={styles.name}>
+                 {user.Dirección}
+          </Text>
+          <Text style={{paddingTop:5}}>Ciudad</Text>
+          <Text style={styles.name}>
+                {user.Ciudad}
+          </Text>
+        </View>
+        
         
       </View>
     </View>

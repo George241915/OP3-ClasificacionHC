@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     container: {
-      backgroundColor: '#F19A34',
+      backgroundColor: '#F0F3F4',
       width: "100%",
       height: "100%",
       alignItems: "center"
@@ -13,23 +13,24 @@ const styles = StyleSheet.create({
     },avatarContainer: {
         
         alignItems: "center",
-        marginTop: -95,
+        marginTop: -5,
     },avatar: {
         width: 150,
         height: 150,
         borderRadius: 75,
         borderWidth: 5,
         borderColor: "white", 
+        marginTop: -75,
     }, name: {
-        marginTop: 15,
-        fontSize: 25,
+        marginTop: 10,
+        fontSize: 17,
         fontWeight: "bold",
-        color: 'purple',
+        color: '#515A5A',
         width:250,
-        textAlign:'center'
+        textAlign:'left'
     },buttonContainer: {
         flexDirection: "row",
-        marginTop: 20,
+        marginTop: 35,
         width: "80%",
         justifyContent: "space-between"
     },
@@ -68,7 +69,22 @@ const styles = StyleSheet.create({
         marginTop: 5,
         fontSize: 15,
         textAlign:'center'
-    }
+    },
+    cardD:{
+        margin:-35,
+        backgroundColor:'#ffff',
+        borderRadius:20,
+        width:'90%',
+        padding:35,
+        shadowColor:'#000',
+        shadowOffset:{
+            width:0,
+            height:2
+        },
+        shadowOpacity:0.25,
+        shadowRadius:4,
+        elevation:2
+    },
 
   });
 

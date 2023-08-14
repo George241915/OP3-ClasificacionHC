@@ -6,6 +6,7 @@ import * as MediaLibrary from 'expo-media-library';
 import axios from 'axios';
 import Canvas from 'react-native-canvas';
 import * as FileSystem from 'expo-file-system';
+import { Ionicons } from '@expo/vector-icons';
 
 const CLASS_COLORS = {
   1: {
@@ -254,14 +255,15 @@ export default function Model({navigation}) {
           />
             :
             <Button
-              title=''
-              icon='camera-reverse'
+              title='REVERS'
+              icon=''
               onPress={() => {
                 setType(
                   type === CameraType.back ? CameraType.front : CameraType.back
                 );
               }}
-            />
+            >   
+            </Button>
           }
           <Button disabled={detected} title='Count' onPress={takePicture} icon='color-wand' />
         </View>
@@ -287,6 +289,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
+    
   },
   text: {
     fontWeight: 'bold',

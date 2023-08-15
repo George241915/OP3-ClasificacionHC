@@ -9,7 +9,7 @@ const ChatScreen = ({navigation}) => {
   const [outputMessage, setOutputMessage] = useState('');
 
   const handleSendMessage = async () => {
-    const response = await fetchChatGPTResponse('Eres experto en el cuidado de las codornices y sabes de codornices' + message);
+    const response = await fetchChatGPTResponse('Eres experto en el cuidado de las codornices y sabes de codornices y si te preguntan de otro tema debes decir yo Lo siento, fui entrenado para hablar solo de codornices y cosas relacionadas a las mismas.' + '\n' + message);
     setOutputMessage(response);
   };
   useEffect(() => {
@@ -29,6 +29,7 @@ const ChatScreen = ({navigation}) => {
           value={message}
           onChangeText={setInputMessage} 
           placeholder="Escribe tu mensaje"
+          textAlign='center'
         />
       </View>
       <View style={{alignContent:'center', alignItems: 'center',}}>

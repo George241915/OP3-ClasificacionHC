@@ -49,8 +49,8 @@ const styles=StyleSheet.create({
             paddingVertical:20,
             backgroundColor:'#cccccc40',
             borderRadius:30,
-            marginVertical:10
-            
+            marginVertical:10,
+            textAlign: 'center'           
         },
         button:{
             

@@ -11,7 +11,7 @@ import styles from '../styles/stylesNavegacion';
 import cam from '../assets/logEC.png'
 import Bienvenido from '../screens/Bienvenido';
 import Recomendaciones from '../screens/Recomendaciones';
-import Model from '../screens/Model';
+import Model from '../screens/model';
 
 
 const Tab= createBottomTabNavigator();

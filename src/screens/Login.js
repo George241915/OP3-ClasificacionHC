@@ -42,10 +42,10 @@ export default function Login(props) {
             </View>
             <View style={styles.card} >
                 <View style={styles.boxText}>
-                    <TextInput onChangeText={(text)=>setEmail(text)} placeholder='correo@gmail.com' style={styles.input}></TextInput>
+                    <TextInput onChangeText={(text)=>setEmail(text)} placeholder='correo@gmail.com' style={styles.input} textAlign='center'></TextInput>
                 </View>
                 <View style={styles.boxText}>
-                    <TextInput onChangeText={(text)=>setPassword(text)} placeholder='password' style={styles.input} secureTextEntry={true} ></TextInput>
+                    <TextInput onChangeText={(text)=>setPassword(text)} placeholder='password' style={styles.input} secureTextEntry={true} textAlign='center'></TextInput>
                 </View>
 
                 <View style={styles.button}>

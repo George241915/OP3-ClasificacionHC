@@ -17,7 +17,8 @@ const styles=StyleSheet.create({
     },
     tabvaricon: {
         position: "absolute",
-        top: '35%'
+        top: '35%',
+        fontSize:7
     },
     camicon: {
         width: 33,

@@ -9,25 +9,25 @@ import * as FileSystem from 'expo-file-system';
 import { Ionicons } from '@expo/vector-icons';
 
 const CLASS_COLORS = {
-  huevo_bueno: {
+  huevos_buenos: {
     border: 'rgb(96, 153, 99)',
     fill: 'rgba(96, 153, 99, 0.5)'
   },
-  huevo_malo: {
+  huevos_malos: {
     border: 'rgb(249, 146, 82)',
     fill: 'rgba(249, 146, 82, 0.5)'
   },
   
 }
 
-const URL = 'https://inf-a224b371-8a43-4a97-8aaf-cb34e728f9be-no4xvrhsfq-uc.a.run.app/detect'; // copy and paste your Theos deployment URL here
+const URL = 'https://inf-826adb7f-c53f-484e-9924-2b8e0b78cfea-no4xvrhsfq-uc.a.run.app/detect'; // copy and paste your Theos deployment URL here
 const FALLBACK_URL = '';
 
 function sleep(seconds) {
   return new Promise((resolve) => setTimeout(resolve, seconds * 1000));
 }
 
-async function detect(imageFile, url=URL, confThres=0.04, iouThres=0.45, retries=10, delay=0) {
+async function detect(imageFile, url=URL, confThres=0.30, iouThres=0.45, retries=10, delay=0) {
   const data = new FormData();
   data.append('image', imageFile);
   data.append('conf_thres', confThres);
@@ -127,7 +127,7 @@ export default function Model({navigation}) {
         let detectHuevoBueno=0;
         
         detectedCash.forEach((detection) => {
-            if (detection.class == 'huevo_bueno'){
+            if (detection.class == 'huevos_buenos'){
               detectHuevoBueno= 1
             }
     

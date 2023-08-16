@@ -37,7 +37,7 @@ export default function Navigation(props) {
             labelicon = focused ? 'Recomendaciones' : '';
             break; 
         } 
-        return <Text style={{color:'purple'}}>{labelicon}</Text>
+        return <Text style={{color:'purple', fontSize:10}}>{labelicon}</Text>
       }
     })}>
       <Tab.Screen name='Inicio' component={Bienvenido}
@@ -76,15 +76,17 @@ export default function Navigation(props) {
         }} 
         key="camera-screen"
       ></Tab.Screen>
-      <Tab.Screen name='Recomendaciones' component={Recomendaciones}
+      <Tab.Screen name='Recomendaciones' component={Recomendaciones} 
         options={{
+
           tabBarIcon: ({ focused }) => (
             <View style={styles.tabvaricon}>
               <FontAwesome5 name="brain" size={20} color={focused ? 'purple' : 'gray'}>
               </FontAwesome5>
             </View>),
-          headerShown: false
-        }}
+          headerShown: false,      
+        }} 
+  
       ></Tab.Screen>
     </Tab.Navigator>
     )

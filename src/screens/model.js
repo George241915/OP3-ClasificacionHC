@@ -9,11 +9,11 @@ import * as FileSystem from 'expo-file-system';
 import { Ionicons } from '@expo/vector-icons';
 
 const CLASS_COLORS = {
-  1: {
+  huevo_bueno: {
     border: 'rgb(249, 146, 82)',
     fill: 'rgba(249, 146, 82, 0.5)'
   },
-  0: {
+  huevo_malo: {
     border: 'rgb(96, 153, 99)',
     fill: 'rgba(96, 153, 99, 0.5)'
   },

@@ -10,12 +10,12 @@ import { Ionicons } from '@expo/vector-icons';
 
 const CLASS_COLORS = {
   huevo_bueno: {
-    border: 'rgb(249, 146, 82)',
-    fill: 'rgba(249, 146, 82, 0.5)'
-  },
-  huevo_malo: {
     border: 'rgb(96, 153, 99)',
     fill: 'rgba(96, 153, 99, 0.5)'
+  },
+  huevo_malo: {
+    border: 'rgb(249, 146, 82)',
+    fill: 'rgba(249, 146, 82, 0.5)'
   },
   
 }
@@ -124,9 +124,14 @@ export default function Model({navigation}) {
         setDetected(true);
         setDetections(detectedCash);
         let detectedAmout = 0;
+        let detectHuevoBueno=0;
+        
         detectedCash.forEach((detection) => {
+            if (detection.class == 'huevo_bueno'){
+              detectHuevoBueno= 1
+            }
     
-            detectedAmout = detectedAmout + parseInt(detection.class);   
+            detectedAmout += detectHuevoBueno;   
             
         });
         setAmount(detectedAmout);

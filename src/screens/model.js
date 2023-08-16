@@ -20,14 +20,14 @@ const CLASS_COLORS = {
   
 }
 
-const URL = 'https://inf-ca2c35e8-5a89-4514-91fb-44900579801a-no4xvrhsfq-uc.a.run.app/detect'; // copy and paste your Theos deployment URL here
+const URL = 'https://inf-a224b371-8a43-4a97-8aaf-cb34e728f9be-no4xvrhsfq-uc.a.run.app/detect'; // copy and paste your Theos deployment URL here
 const FALLBACK_URL = '';
 
 function sleep(seconds) {
   return new Promise((resolve) => setTimeout(resolve, seconds * 1000));
 }
 
-async function detect(imageFile, url=URL, confThres=0.25, iouThres=0.45, retries=10, delay=0) {
+async function detect(imageFile, url=URL, confThres=0.04, iouThres=0.45, retries=10, delay=0) {
   const data = new FormData();
   data.append('image', imageFile);
   data.append('conf_thres', confThres);
